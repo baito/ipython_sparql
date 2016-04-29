@@ -1,0 +1,1 @@
+from ipython_sparql.sparql import *
