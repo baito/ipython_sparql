@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from abc import ABCMeta, abstractmethod
 
 from IPython.core.magic import Magics, magics_class, cell_magic, line_magic
@@ -107,6 +109,7 @@ class SparqlMagic(Magics):
         super(SparqlMagic, self).__init__(shell)
 
         self._sparql_endpoint = None
+        self._last_result = None
 
         if sparql_client:
             self._sparql_client = sparql_client
@@ -116,6 +119,8 @@ class SparqlMagic(Magics):
     @cell_magic('sparql')
     def sparql(self, line, cell):
         results = self._query(self._sparql_endpoint, cell)
+
+        self._last_result = results
 
         return self._view_results(results)
 
@@ -134,6 +139,10 @@ class SparqlMagic(Magics):
             self._sparql_endpoint = line
         else:
             raise ValueError('Invalid Sparql Endpoint')
+
+    @line_magic('sparql_last_result')
+    def sparql_last_result(self, line):
+        return self._last_result
 
 
 def prepare_json_to_tabular(result):
