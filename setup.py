@@ -1,4 +1,4 @@
-from distutils.core import setup
+from setuptools import setup
 
 setup(
     name='ipython_sparql',
@@ -8,5 +8,9 @@ setup(
     author='Bruno',
     author_email='ddd@dd.com.br',
     description='Ipython Extension for Sparql queries',
-    install_requires=[]
+    install_requires=[
+        'ipython == 4.2.0',
+        'SPARQLWrapper == 1.7.5',
+        'tabulate == 0.7.5'
+    ]
 )

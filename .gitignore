@@ -5,3 +5,5 @@ dist/*
 build/*
 .ipynb_checkpoints
 .idea
+.tox/*
+ipython_sparql.egg-info/*

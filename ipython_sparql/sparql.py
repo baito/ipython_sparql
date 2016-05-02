@@ -7,12 +7,7 @@ from IPython.core.display import display, display_javascript, Javascript, HTML
 from SPARQLWrapper import SPARQLWrapper, JSON
 from tabulate import tabulate
 
-'''
-TODO:
-1) Rename "tabular_client"
-2) Comando para acessar o resultado da última consulta
 
-'''
 class SparqlClient(object):
 
     __metaclass__ = ABCMeta
