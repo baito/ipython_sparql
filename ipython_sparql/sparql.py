@@ -186,11 +186,11 @@ def load_ipython_extension(ipython):
     #js_highlight = Javascript(data=sparql_highlight, lib=[lib_sparql_highlight])
 
     #display_javascript(js_highlight)
-    from notebook.services.config.manager import ConfigManager
+    #from notebook.services.config.manager import ConfigManager
 
-    config = ConfigManager()
+    #config = ConfigManager()
 
-    config.update('notebook', {'CodeCell': {'highlight_modes':{'magic_application/sparql-query': {'reg': ['/^%%sparql/']}}}})
+    #config.update('notebook', {'CodeCell': {'highlight_modes':{'magic_application/sparql-query': {'reg': ['/^%%sparql/']}}}})
 
 
 def unload_ipython_extension(ipython):
