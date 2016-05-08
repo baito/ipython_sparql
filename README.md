@@ -13,13 +13,13 @@ pip install ipython-sparql
 
 ## Usage
 
-It loads the extension:
+Load the extension:
 
 ```
 %load_ext ipython_sparql
 ```
 
-It defines the sparql endpoint:
+Define the sparql endpoint:
 
 ```
 %sparql_endpoint http://dbpedia.org/sparql/
@@ -39,7 +39,7 @@ SELECT ?capital ?populationTotal WHERE {
 LIMIT 5
 ```
 
-## All magics commands
+## All magic commands
 
 * %sparql_endpoint: set the sparql endpoint
 * %%sparql: query
