@@ -153,7 +153,10 @@ def prepare_json_to_tabular(result):
     for data in result['results']['bindings']:
         row = []
         for var in vars:
-            d = data[var]['value']
+            if var in data:
+                d = data[var]['value']
+            else:
+                d = None
             row.append(d)
         table.append(row)
 
