@@ -62,6 +62,31 @@ class TestSparqlWrapperClient(unittest.TestCase):
 
         self.assertEquals(result, expected)
 
+    def test_sparql_query_result_select_optinoal_null_values(self):
+        query = \
+        '''
+        PREFIX : <http://dbpedia.org/resource/>
+        PREFIX dbo: <http://dbpedia.org/ontology/>
+
+        SELECT DISTINCT ?Nombre ?Capital
+        WHERE 
+        { 
+            :Portugal rdf:type yago:WikicatCountriesInEurope .
+            :Portugal foaf:name ?Nombre .
+            OPTIONAL { :Portugal dbo:capital ?Capital }
+        }
+        '''
+
+        expected = {'head': {'link': [], 'vars': ['Nombre', 'Capital']},
+                    'results': {'bindings': 
+                    [{'Nombre': {'type': 'literal', 'value': 'Portugal', 'xml:lang': 'en'}}],
+                    'distinct': False,
+                    'ordered': True}}
+
+        result = self.sparql_client.query(self.endpoint, query).results()
+
+        self.assertEquals(result, expected)
+
 
 """
 def suite():
